@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+ 
+{% block css %}
+
+<link href="{% static 'css/micss/main.css' %}" rel="stylesheet">
+
+{% endblock css %}
+
+{% block main %}
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Actividades</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+      
+      <!-- Content Row -->
+      <div class="row">
+
+
+        <div class="col-lg-6">
+
+          <!-- Circle Buttons -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Datos CNA</h6>
+            </div>
+            <div class="card-body">
+              
+              
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Factores coherencia con el CNA</label>
+                  <select class="form-control" id ="factores">
+                    <option>Por favor seleccionar una opción</option>
+                    {% for c in factores_coherencia %}
+                        <option value="{{ c.id }}">{{ c }}</option>
+                     {% endfor %}
+                  </select>
+                  <small id="emailHelp" class="form-text text-muted">Factores de coherencia establecidos por el CNA</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Factor caracteristica</label>
+                  <select class="form-control" id="caracteristicas">
+                   
+                  </select>
+                </div>
+
+                <div class="form-group">
+                                    
+                  <!-- Page Heading -->
+         
+          
+
+             <!-- Collapsable Card Example -->
+             <div class="card shadow mb-4">
+              <!-- Card Header - Accordion -->
+              <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Objetivos operativos</h6>
+              </a>
+              <!-- Card Content - Collapse -->
+              <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <!-- <th>id</th>  esta columna existe pero queda escondida--> 
+                          <th>Objetivo</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody_objetivos">
+                        
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                  
+
+                </div> <!--cierre card body -->
+              </div> <!--cierre card content-->
+            </div> <!-- card shadow mb4 -->
+               
+      </div>
+          
+
+            </div>
+          </div>
+
+        
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="card shadow mb-4">
+             
+           
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Registro de actividades</h6>
+            </div>
+            <div class="card-body">
+             
+              <form action="" class="">
+
+                <div class="form-group">
+                  <label for="descripcionactividad">Actividad</label>
+                  <small id="objetivoSeleccionado" class="form-text text-muted"></small>
+                  <textarea class="form-control" id="descripcionactividad" rows="3" placeholder="Describa la actividad"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="frecuenciaanual">Frecuencia anual</label>
+                  <input type="number" class="form-control" id="frecuenciaanual" placeholder="Digite cuantas veces al año se realizará">
+                </div>
+                <div class="form-group">
+                  <label for="dependenciasresponsables">Dependencias responsables</label>
+                  <select multiple size="6" class="form-control" id="dependenciasresponsables">
+                    <option value="American">American flamingo</option>
+                    <option value="Andean">Andean flamingo</option>
+                    <option value="Chilean">Chilean flamingo</option>
+                    <option value="Greater">Greater flamingo</option>
+                    <option value="James's">James's flamingo</option>
+                    <option value="Lesser">Lesser flamingo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="fechas">Fechas</label>
+                  <input type="text" class="form-control" id="fechas" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="mediosV">Medios de verificación</label>
+                  <textarea class="form-control" id="mediosV" rows="3"></textarea>
+                  <small id="mediosVHelp" class="form-text text-muted">Aquí registre los medios de verificación mediante la cual es posible revisar el cumplimiento de las actividades</small>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Guardar actividad</button>
+      
+               </form>
+            </div>
+          </div>
+
+        </div>
+
+       
+
+      </div>
+
+   
+
+
+{% endblock %}
+
+
+{% block js %}
+
+  <script src="{% static 'js/mijs/main.js' %}"></script>
+    
+{% endblock js %}
